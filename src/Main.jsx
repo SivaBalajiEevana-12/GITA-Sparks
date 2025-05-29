@@ -124,7 +124,7 @@ const handleSubmit = async () => {
   }
 
   try {
-    const res = await fetch("http://localhost:5000/create-order", {
+    const res = await fetch("https://razor-pay-server-8un7.onrender.com/create-order", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ amount: 9900 }),
@@ -140,7 +140,7 @@ const handleSubmit = async () => {
       order_id: orderData.id,
       handler: async function (response) {
         const { razorpay_payment_id, razorpay_order_id, razorpay_signature } = response
-        const verifyRes = await fetch("http://localhost:5000/verify-payment", {
+        const verifyRes = await fetch("https://razor-pay-server-8un7.onrender.com/verify-payment", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
