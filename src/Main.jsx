@@ -189,24 +189,7 @@ const handleSubmit = async () => {
 
 
   const workshopTopics = [
-    "Facing challenges",
-    "Real identity",
-    "Action for liberation/work is worship",
-    "Perfect knowledge",
-    "Intelligent / Responsible action",
-    "Mind control",
-    "Closer to God",
-    "Beyond birth and death",
-    "King of all knowledge",
-    "Meditation",
-    "Supreme power",
-    "Top most yoga system",
-    "Reality of the world",
-    "Who is controlling us?",
-    "Matrix: How to come out of illusion?",
-    "Divine and demonic qualities",
-    "Developing faith",
-    "Ultimate knowledge",
+   
   ]
 
   return (
@@ -253,7 +236,7 @@ const handleSubmit = async () => {
                 <VStack align="start" spacing={4} mb={6}>
                   <Box>
                     <Text fontSize="lg" fontWeight="semibold" color="blue.600" mb={2}>
-                      Topics that will be covered in the Workshop
+                      
                     </Text>
                     <List spacing={1}>
                       {workshopTopics.map((topic, index) => (
