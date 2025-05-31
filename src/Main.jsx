@@ -30,6 +30,7 @@ import {
 import { FaCircle, FaEnvelope, FaPhone, FaCreditCard } from "react-icons/fa"
 import { SiVisa, SiMastercard } from "react-icons/si"
 import { useNavigate } from 'react-router-dom';
+import images from "./logo.jpg"
 
 const Main = () => {
   const navigate = useNavigate();
@@ -245,7 +246,7 @@ const handleSubmit = async () => {
               <CardBody>
                 {/* Workshop Banner */}
                 <Box mb={6}>
-                  <Image src="/images/gita-banner.png" alt="GITA Sparks Workshop Banner" w="100%" borderRadius="md" />
+                  <Image src={images} alt="GITA Sparks Workshop Banner" w="100%" borderRadius="md" />
                 </Box>
 
                 {/* Workshop Details */}
