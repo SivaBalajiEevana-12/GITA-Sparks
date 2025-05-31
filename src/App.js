@@ -15,6 +15,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import { BrowserRouter } from 'react-router-dom';
 import Main2 from './Main2';
 import Main from './Main';
+import WhatsApp from './WhatsApp';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Routes>
       <Route path="/" element={<Main2 />} />
         <Route path="/register" element={<Main />} />
+        <Route path='/whatsapp' element={<WhatsApp/>}/>
       </Routes>
     </ChakraProvider>
   );

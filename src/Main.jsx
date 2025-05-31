@@ -153,9 +153,10 @@ const handleSubmit = async () => {
         })
         const verifyData = await verifyRes.json()
         if (verifyData.status === "success") {
-          alert("✅ Payment successful and verified!")
+          navigate('/whatsapp');
         } else {
           alert("❌ Payment failed verification.")
+          navigate('/');
         }
       },
       prefill: {
@@ -180,7 +181,7 @@ const handleSubmit = async () => {
     courseAndYear: "",
     amount:"99.00"
     })
-    navigate('/');
+    
   } catch (error) {
     console.error("Payment error:", error)
     alert("Something went wrong during payment initiation.")
@@ -196,7 +197,7 @@ const handleSubmit = async () => {
     <Box bg="gray.50" minH="100vh" py={8}>
       <Container maxW="7xl">
         {/* Header */}
-        <Flex align="center" mb={6} bg="white" p={4} borderRadius="lg" shadow="sm">
+        <Flex align="center" mb={6} bg="white" p={4} borderRadius="lg" shadow="md">
           <Box
             w="50px"
             h="50px"
@@ -207,7 +208,7 @@ const handleSubmit = async () => {
             alignItems="center"
             justifyContent="center"
           >
-            <Text color="white" fontWeight="bold" fontSize="sm">
+            <Text color="white" fontWeight="bold" fontSize="md">
               HKMI
             </Text>
           </Box>
@@ -216,23 +217,30 @@ const handleSubmit = async () => {
           </Text>
         </Flex>
 
-        <Flex direction={{ base: "column", lg: "row" }} gap={8}>
+        {/* <Flex direction={{ base: "column", lg: "row" }} gap={8}> */}
+         <Flex
+    minH="100vh"
+    align="center"
+    justify="center"
+    direction="column"
+    px={4}
+  >
           {/* Left Column - Workshop Details */}
-          <Box flex="1">
+        {/*} <Box flex="1">
             <Card>
-              <CardHeader>
+              {/* <CardHeader>
                 <Heading size="lg" color="blue.600" mb={2}>
                   GITA Sparks - Transformative Summer
                 </Heading>
                 <Divider />
-              </CardHeader>
+              </CardHeader> 
               <CardBody>
-                {/* Workshop Banner */}
-                <Box mb={6}>
+                {/* Workshop Banner 
+                {/* <Box mb={6}>
                   <Image src={images} alt="GITA Sparks Workshop Banner" w="100%" borderRadius="md" />
-                </Box>
+                </Box> 
 
-                {/* Workshop Details */}
+                {/* Workshop Details 
                 <VStack align="start" spacing={4} mb={6}>
                   <Box>
                     <Text fontSize="lg" fontWeight="semibold" color="blue.600" mb={2}>
@@ -240,7 +248,7 @@ const handleSubmit = async () => {
                     </Text>
                     <List spacing={1}>
                       {workshopTopics.map((topic, index) => (
-                        <ListItem key={index} fontSize="sm">
+                        <ListItem key={index} fontSize="md">
                           <ListIcon as={FaCircle} color="blue.500" boxSize={2} />
                           {topic}
                         </ListItem>
@@ -249,7 +257,7 @@ const handleSubmit = async () => {
                   </Box>
                 </VStack>
 
-                {/* Contact Information */}
+                {/* Contact Information 
                 <Box bg="gray.50" p={4} borderRadius="md">
                   <Text fontSize="lg" fontWeight="semibold" mb={3}>
                     Contact Us:
@@ -266,7 +274,7 @@ const handleSubmit = async () => {
                   </VStack>
                 </Box>
 
-                {/* Terms & Conditions */}
+                {/* Terms & Conditions 
                 <Box mt={6} p={4} bg="yellow.50" borderRadius="md" borderLeft="4px" borderColor="yellow.400">
                   <Text fontSize="sm" fontWeight="semibold" mb={2}>
                     Terms & Conditions:
@@ -279,12 +287,12 @@ const handleSubmit = async () => {
               </CardBody>
             </Card>
           </Box>
-
+*/}
           {/* Right Column - Payment Form */}
-          <Box w={{ base: "100%", lg: "400px" }}>
+          <Box w={{ base: "100%", lg: "600px" }}>
             <Card>
               <CardHeader>
-                <Heading size="md" color="blue.600">
+                <Heading size="lg" color="blue.600">
                   Payment Details
                 </Heading>
                 <Divider mt={2} />
@@ -292,46 +300,46 @@ const handleSubmit = async () => {
               <CardBody>
                 <VStack spacing={4}>
                   <FormControl isInvalid={!!errors.name}>
-                    <FormLabel fontSize="sm">Name</FormLabel>
+                    <FormLabel fontSize="md">Name</FormLabel>
                     <Input
                       value={formData.name}
                       onChange={(e) => handleInputChange("name", e.target.value)}
                       placeholder="Enter your full name"
-                      size="sm"
+                      size="md"
                     />
                     <FormErrorMessage fontSize="xs">{errors.name}</FormErrorMessage>
                   </FormControl>
 
                   <FormControl isInvalid={!!errors.whatsappNumber}>
-                    <FormLabel fontSize="sm">WhatsApp Number</FormLabel>
+                    <FormLabel fontSize="md">WhatsApp Number</FormLabel>
                     <Input
                       value={formData.whatsappNumber}
                       onChange={(e) => handleInputChange("whatsappNumber", e.target.value)}
                       placeholder="Enter WhatsApp number"
-                      size="sm"
+                      size="md"
                     />
                     <FormErrorMessage fontSize="xs">{errors.whatsappNumber}</FormErrorMessage>
                   </FormControl>
 
                   <FormControl isInvalid={!!errors.email}>
-                    <FormLabel fontSize="sm">Email</FormLabel>
+                    <FormLabel fontSize="md">Email</FormLabel>
                     <Input
                       type="email"
                       value={formData.email}
                       onChange={(e) => handleInputChange("email", e.target.value)}
                       placeholder="Enter your email"
-                      size="sm"
+                      size="md"
                     />
                     <FormErrorMessage fontSize="xs">{errors.email}</FormErrorMessage>
                   </FormControl>
 
                   <FormControl isInvalid={!!errors.gender}>
-                    <FormLabel fontSize="sm">Gender</FormLabel>
+                    <FormLabel fontSize="md">Gender</FormLabel>
                     <Select
                       value={formData.gender}
                       onChange={(e) => handleInputChange("gender", e.target.value)}
                       placeholder="--Select--"
-                      size="sm"
+                      size="md"
                     >
                       <option value="male">Male</option>
                       <option value="female">Female</option>
@@ -341,12 +349,12 @@ const handleSubmit = async () => {
                   </FormControl>
 
                   <FormControl isInvalid={!!errors.dayScholarOrHostler}>
-                    <FormLabel fontSize="sm">DayScholar or Hostler</FormLabel>
+                    <FormLabel fontSize="md">DayScholar or Hostler</FormLabel>
                     <Select
                       value={formData.dayScholarOrHostler}
                       onChange={(e) => handleInputChange("dayScholarOrHostler", e.target.value)}
                       placeholder="--Select--"
-                      size="sm"
+                      size="md"
                     >
                       <option value="dayscholar">Day Scholar</option>
                       <option value="hostler">Hostler</option>
@@ -356,35 +364,35 @@ const handleSubmit = async () => {
 
                   {formData.dayScholarOrHostler === "dayscholar" && (
                     <FormControl isInvalid={!!errors.areaOfResidence}>
-                      <FormLabel fontSize="sm">Area of Residence if Day Scholar</FormLabel>
+                      <FormLabel fontSize="md">Area of Residence if Day Scholar</FormLabel>
                       <Input
                         value={formData.areaOfResidence}
                         onChange={(e) => handleInputChange("areaOfResidence", e.target.value)}
                         placeholder="Enter area of residence"
-                        size="sm"
+                        size="md"
                       />
                       <FormErrorMessage fontSize="xs">{errors.areaOfResidence}</FormErrorMessage>
                     </FormControl>
                   )}
 
                   <FormControl isInvalid={!!errors.collegeName}>
-                    <FormLabel fontSize="sm">College Name</FormLabel>
+                    <FormLabel fontSize="md">College Name</FormLabel>
                     <Input
                       value={formData.collegeName}
                       onChange={(e) => handleInputChange("collegeName", e.target.value)}
                       placeholder="Enter college name"
-                      size="sm"
+                      size="md"
                     />
                     <FormErrorMessage fontSize="xs">{errors.collegeName}</FormErrorMessage>
                   </FormControl>
 
                   <FormControl isInvalid={!!errors.courseAndYear}>
-                    <FormLabel fontSize="sm">Course and Year</FormLabel>
+                    <FormLabel fontSize="md">Course and Year</FormLabel>
                     <Input
                       value={formData.courseAndYear}
                       onChange={(e) => handleInputChange("courseAndYear", e.target.value)}
                       placeholder="e.g., B.Tech 2nd Year"
-                      size="sm"
+                      size="md"
                     />
                     <FormErrorMessage fontSize="xs">{errors.courseAndYear}</FormErrorMessage>
                   </FormControl>
@@ -393,7 +401,7 @@ const handleSubmit = async () => {
 
                   {/* Amount Section */}
                   <Flex justify="space-between" w="100%" align="center">
-                    <Text fontSize="sm" fontWeight="semibold">
+                    <Text fontSize="md" fontWeight="semibold">
                       Amount
                     </Text>
                     <Badge colorScheme="green" fontSize="md" p={2}>
@@ -434,6 +442,7 @@ const handleSubmit = async () => {
               </CardBody>
             </Card>
           </Box>
+        {/* </Flex> */}
         </Flex>
       </Container>
     </Box>
