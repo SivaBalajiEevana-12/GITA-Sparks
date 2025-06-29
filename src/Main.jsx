@@ -125,7 +125,7 @@ const handleSubmit = async () => {
   }
 
   try {
-    const res = await fetch("https://razor-pay-server-production.up.railway.app/create-order", {
+    const res = await fetch("https://razor-pay-server-389286764509.asia-south1.run.app/create-order", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ amount: 9900 }),
@@ -141,7 +141,7 @@ const handleSubmit = async () => {
       order_id: orderData.id,
       handler: async function (response) {
         const { razorpay_payment_id, razorpay_order_id, razorpay_signature } = response
-        const verifyRes = await fetch("https://razor-pay-server-production.up.railway.app/verify-payment", {
+        const verifyRes = await fetch("https://razor-pay-server-389286764509.asia-south1.run.app/verify-payment", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -162,7 +162,7 @@ const handleSubmit = async () => {
       prefill: {
         name: formData.name,
         email: formData.email,
-        contact: formData.whatsapp,
+        contact: formData.whatsappNumber,
       },
       theme: { color: "#2563eb" },
     }
